@@ -2,30 +2,50 @@
       <div class="detail-container">
 
 
-          <Div class="detail-title"><h1>Pokedex</h1></div>
-            
+          <Div class="detail-title">
+
+            <img src="../img/Pokedex_Kanto.png" height="100%" width="100%" alt="ash's pokedex" />
+
+            <p>Pokedex</p>
+          </div>
+
 
                 <br/>
 
-                <input class="detail-input" type="text" placeholder="Poke Name" ng-model="pokemonSpecies">
-
-                  <button class="detail-btn" ng-click="getPokemonByName(pokemonSpecies)">Find Pokemon by name</button>
-
-                  <hr/>
-
-                <input class="detail-input" type="text" placeholder="Poke #" ng-model="entryNumber">
-
-                    <button class="detail-btn" ng-click="getPokemonByEntryNumber(entryNumber)">Find Pokemon by index</button>
-
-                    <button class="detail-btn" ng-click="resetPokemon()">reset</button>
+        <div class="find-pokemon">
 
 
-                <div ng-repeat="pokemon in displayPokemon">
+
+              <p>Name
+                <input class="detail-input" type="text" ng-model="pokemonSpecies"></p>
+
+                  <button class="detail-btn" ng-click="getPokemonByName(pokemonSpecies)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
+
+
+              <p>Number
+
+                <input class="detail-input" type="text" ng-model="entryNumber"></p>
+
+
+                    <button class="detail-btn" ng-click="getPokemonByEntryNumber(entryNumber)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
+
+                    <div><button id="detail-btn-reset" ng-click="resetPokemon()"><h2>Back To Pokedex</h2></button></div>
+
+                  </div>
+
+                  <div class="pokemon-image" ng-repeat="poke in pokeImg">
+                    <img ng-src="{{poke.image}}" alt="{{poke.id}}" height="200px" width="200px"></img>
+                  </div>
+
+
+                <div class="displayPokemons" ng-repeat="pokemon in displayPokemon">
                   <ul>
                      <li><h2>Region: "{{location.name}}"</h2></li>
-                     <li><h3>pokemon: "{{pokemon.pokemon_species.name}}"</h3></li>
+                     <li><h3>"{{pokemon.pokemon_species.name}}"</h3></li>
+                     <img ng-src="img/001.png" alt="pokeImg[0].id" height="200px" width="200px"></img>
                      <li>Index: "#{{pokemon.entry_number}}"</li>
                   </ul>
                 </div>
+
 
            </div>

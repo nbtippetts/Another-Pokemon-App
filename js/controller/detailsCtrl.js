@@ -1,11 +1,14 @@
-angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams, myService){
+angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams, myService, pokeService){
 
   $scope.getPokemon = function(){
      myService.getPokemon().then(function(response){
-       console.log(response)
-       $scope.location = response.data;
-       $scope.pokemon = response.data.pokemon_entries;
-       $scope.displayPokemon = $scope.pokemon;
+
+      //  $scope.location = response.data;
+      //  $scope.pokemon = response.data.pokemon_entries;
+      //  $scope.displayPokemon = $scope.pokemon;
+       //
+      //
+      //  $scope.pokeImg = pokeService.pokedata;
      })
    }
 
@@ -39,5 +42,11 @@ angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams,
    $scope.displayPokemon = $scope.pokemon;
  }
 
+  $scope.pokemonImg = function() {
+
+    $scope.pokeImg = pokeService.pokeData;
+  }
+
+    $scope.pokemonImg()
 
 })
