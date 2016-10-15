@@ -1,0 +1,31 @@
+
+      <div class="detail-container">
+
+
+          <Div class="detail-title"><h1>Pokedex</h1></div>
+            
+
+                <br/>
+
+                <input class="detail-input" type="text" placeholder="Poke Name" ng-model="pokemonSpecies">
+
+                  <button class="detail-btn" ng-click="getPokemonByName(pokemonSpecies)">Find Pokemon by name</button>
+
+                  <hr/>
+
+                <input class="detail-input" type="text" placeholder="Poke #" ng-model="entryNumber">
+
+                    <button class="detail-btn" ng-click="getPokemonByEntryNumber(entryNumber)">Find Pokemon by index</button>
+
+                    <button class="detail-btn" ng-click="resetPokemon()">reset</button>
+
+
+                <div ng-repeat="pokemon in displayPokemon">
+                  <ul>
+                     <li><h2>Region: "{{location.name}}"</h2></li>
+                     <li><h3>pokemon: "{{pokemon.pokemon_species.name}}"</h3></li>
+                     <li>Index: "#{{pokemon.entry_number}}"</li>
+                  </ul>
+                </div>
+
+           </div>
