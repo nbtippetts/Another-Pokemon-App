@@ -9,38 +9,75 @@ angular.module('myApp').service('myService', function($http, $q){
               url: "http://pokeapi.co/api/v2/pokedex/2/",
               cache: 'true'
             }).then(function(response) {
-              var pokemon = response.data.pokemon_entries.splice(11, 152);
+              var pokemon = response.data.pokemon_entries.splice(0, 3);
+              console.log('obj array', pokemon)
               var promises = [];
+              console.log('last', promises)
 
               pokemon.forEach(function(pokemon) {
+                console.log("pokemon", pokemon)
                 var deferred = $q.defer();
                 var modifiedPokemon = {
-                  name: pokemon.name
+                  name: pokemon.pokemon_species.name,
+                  id: pokemon.entry_number
                 }
 
                 getImage.call(pokemon).then(function(response) {
-                  modifiedPokemon.image = response;
-                })
-                console.log("XXXthis is pokemon", pokemon)
+
+                  modifiedPokemon.image = response.data.sprites.front_default;
+
+                  console.log("modifiedPokemon", modifiedPokemon)
+
+
+
+                deferred.resolve(modifiedPokemon);
 
               })
-              deferredMaster.resolve()
+
+              promises.push(deferred.promise);
+            })
+
+              var responses = $q.all(promises);
+              deferredMaster.resolve(responses);
+
             })
             return deferredMaster.promise;
         }
 
+
+
         function getImage (name) {
           var deferred = $q.defer();
-          console.log("this is this", this.name)
+          // console.log("this is this", this)
           $http({
             method: 'GET',
-            url: "http://pokeapi.co/api/v2/pokemon-form/" + this.name
+            url: "http://pokeapi.co/api/v2/pokemon-form/" + this.pokemon_species.name
           }).then(function(response) {
-            console.log("this is response", response)
+            // console.log("this is response", response)
             deferred.resolve(response)
           })
           return deferred.promise;
         }
+
+
+        $scope.Pokemons = function (name){
+
+            $scope.this.pokemon.forEach(function(pokemon){
+
+            console.log("whos that pokemon", pokemon)
+
+            if (pokemon.name == name) {
+                 console.log('XXXX', pokemon)
+
+              return $scope.displayPokemon = [pokemon];
+
+             }
+          })
+        }
+
+
+
+
 
 
 

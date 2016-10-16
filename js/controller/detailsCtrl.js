@@ -3,12 +3,12 @@ angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams,
   $scope.getPokemon = function(){
      myService.getPokemon().then(function(response){
 
-      //  $scope.location = response.data;
-      //  $scope.pokemon = response.data.pokemon_entries;
-      //  $scope.displayPokemon = $scope.pokemon;
-       //
-      //
-      //  $scope.pokeImg = pokeService.pokedata;
+        $scope.testPokemon = response;
+        $scope.pokemon = pokemon.pokemon_species.name;
+        // $scope.displayPokemon = $scope.testPokemon;
+
+
+
      })
    }
 
@@ -16,37 +16,31 @@ angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams,
  $scope.getPokemon()
 
 
- $scope.getPokemonByName = function(name) {
-   $scope.pokemon.forEach(function(pokeName) {
-   //  console.log("this is poke", poke)
-     //console.log("this is num", num)
-     if (pokeName.pokemon_species.name == name) {
-       //console.log('XXXX', poke)
-       return $scope.displayPokemon = [pokeName];
-     }
-   })
- }
+ // $scope.getPokemonByName = function(name) {
+ //   $scope.pokemon.forEach(function(pokeName) {
+ //    console.log("this is poke", poke)
+ //     console.log("this is num", num)
+ //     if (pokeName.name = name) {
+ //       //console.log('XXXX', poke)
+ //       return $scope.displayPokemon = [pokeName];
+ //     }
+ //   })
+ // }
+ //
+ // $scope.getPokemonByEntryNumber = function(num) {
+ //   $scope.pokemon.forEach(function(poke) {
+ //    console.log("this is poke", poke)
+ //     console.log("this is num", num)
+ //     if (poke.id = num) {
+ //       //console.log('XXXX', poke)
+ //       return $scope.displayPokemon = [poke];
+ //     }
+ //   })
+ // }
+ //
+ // $scope.resetPokemon = function() {
+ //   $scope.displayPokemon = $scope.pokemon;
+ // }
 
- $scope.getPokemonByEntryNumber = function(num) {
-   $scope.pokemon.forEach(function(poke) {
-   //  console.log("this is poke", poke)
-     //console.log("this is num", num)
-     if (poke.entry_number == num) {
-       //console.log('XXXX', poke)
-       return $scope.displayPokemon = [poke];
-     }
-   })
- }
-
- $scope.resetPokemon = function() {
-   $scope.displayPokemon = $scope.pokemon;
- }
-
-  $scope.pokemonImg = function() {
-
-    $scope.pokeImg = pokeService.pokeData;
-  }
-
-    $scope.pokemonImg()
 
 })

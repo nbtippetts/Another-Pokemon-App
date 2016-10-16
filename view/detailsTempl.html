@@ -17,35 +17,36 @@
 
 
               <p>Name
-                <input class="detail-input" type="text" ng-model="pokemonSpecies"></p>
+                <input class="detail-input" type="text" ng-model="name"></p>
 
-                  <button class="detail-btn" ng-click="getPokemonByName(pokemonSpecies)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
+                  <button class="detail-btn" ng-click="getThatPokemon(name)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
 
 
               <p>Number
 
-                <input class="detail-input" type="text" ng-model="entryNumber"></p>
+                <input class="detail-input" type="text" ng-model="num"></p>
 
 
-                    <button class="detail-btn" ng-click="getPokemonByEntryNumber(entryNumber)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
+                    <button class="detail-btn" ng-click="getPokemonByEntryNumber(num)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
 
                     <div><button id="detail-btn-reset" ng-click="resetPokemon()"><h2>Back To Pokedex</h2></button></div>
 
                   </div>
 
-                  <div class="pokemon-image" ng-repeat="poke in pokeImg">
-                    <img ng-src="{{poke.image}}" alt="{{poke.id}}" height="200px" width="200px"></img>
-                  </div>
 
 
-                <div class="displayPokemons" ng-repeat="pokemon in displayPokemon">
+
+
+                <div class="displayPokemons" ng-repeat="pokemon in testPokemon">
                   <ul>
-                     <li><h2>Region: "{{location.name}}"</h2></li>
-                     <li><h3>"{{pokemon.pokemon_species.name}}"</h3></li>
-                     <img ng-src="img/001.png" alt="pokeImg[0].id" height="200px" width="200px"></img>
-                     <li>Index: "#{{pokemon.entry_number}}"</li>
+                     <!-- <li><h2>Region: "{{location.name}}"</h2></li> -->
+                     <li><h3>"{{pokemon.name}}"</h3></li>
+                     <img ng-src="{{pokemon.image}}" alt="pokemon.image" height="200px" width="200px"></img>
+                     <li>Index: "#{{pokemon.id}}"</li>
                   </ul>
                 </div>
+
+
 
 
            </div>
