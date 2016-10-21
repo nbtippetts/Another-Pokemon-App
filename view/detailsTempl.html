@@ -1,28 +1,20 @@
 
       <div class="detail-container">
 
-
+        <div class="find-pokemon">
           <Div class="detail-title">
 
             <img src="../img/Pokedex_Kanto.png" height="100%" width="100%" alt="ash's pokedex" />
 
             <p>Pokedex</p>
-          </div>
 
 
-                <br/>
+              <p>Name Or Number
 
-        <div class="find-pokemon">
-
-
-
-              <p>Name
-                <input class="detail-input" type="text" ng-model="name"></p>
-
-                  <button class="detail-btn" ng-click="getThatPokemon(name)"><img src="../img/google-web-search-256.png" style="border-radius:15px;" height="55px" width="55px"></button>
-
-
-              <p>Number
+                <input class="detail-input" type="text" ng-model="myFilter"></p>
+                </div>
+              </div>
+              <!-- <p>Number
 
                 <input class="detail-input" type="text" ng-model="num"></p>
 
@@ -31,20 +23,29 @@
 
                     <div><button id="detail-btn-reset" ng-click="resetPokemon()"><h2>Back To Pokedex</h2></button></div>
 
-                  </div>
+                  </div> -->
 
 
 
 
 
-                <div class="displayPokemons" ng-repeat="pokemon in testPokemon">
+                <div class="displayPokemons" ng-repeat="pokemon in testPokemon | filter: myFilter">
                   <ul>
-                     <!-- <li><h2>Region: "{{location.name}}"</h2></li> -->
-                     <li><h3>"{{pokemon.name}}"</h3></li>
-                     <img ng-src="{{pokemon.image}}" alt="pokemon.image" height="200px" width="200px"></img>
+
+                     <li><h3>{{pokemon.name}}</h3></li>
+
+                        <img ng-src="{{pokemon.image}}" alt="pokemon.image" height="200px" width="200px"></img>
+
                      <li>Index: "#{{pokemon.id}}"</li>
                   </ul>
+
+                 <button ui-sref="pokemonDetails({id: pokemon.id})">Pokemon details</button>
+
                 </div>
+
+
+
+
 
 
 

@@ -1,6 +1,12 @@
 angular.module('myApp', ['ui.router'])
 
       .config(function ($stateProvider, $urlRouterProvider) {
+
+
+
+      // For any unmatched url, send to /route1
+
+
           $stateProvider
 
                .state('home', {
@@ -18,9 +24,20 @@ angular.module('myApp', ['ui.router'])
                .state('details', {
                  url: '/details',
                  templateUrl: '../view/detailsTempl.html',
-                 controller: 'detailsCtrl',
-                 controllerAs: 'vm'
+                 controller: 'detailsCtrl'
                })
+               .state('pokemonDetails', {
+                 url: '/pokemonDetails/:id',
+                 templateUrl: '../view/pokemonDetails.html',
+                 controller: 'pokemonDetailsCtrl',
+
+                 onEnter: function(){
+                   console.log('details list');
+                 }
+              })
+
+
+
 
                $urlRouterProvider
                    .otherwise('/');

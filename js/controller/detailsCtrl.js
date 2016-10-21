@@ -1,13 +1,9 @@
-angular.module('myApp').controller('detailsCtrl', function($scope, $stateParams, myService, pokeService){
+angular.module('myApp').controller('detailsCtrl', function($scope, myService){
 
   $scope.getPokemon = function(){
      myService.getPokemon().then(function(response){
 
         $scope.testPokemon = response;
-        $scope.pokemon = pokemon.pokemon_species.name;
-        // $scope.displayPokemon = $scope.testPokemon;
-
-
 
      })
    }
