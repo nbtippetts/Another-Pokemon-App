@@ -9,9 +9,10 @@
             <p>Pokedex</p>
 
 
-              <p>Name Or Number
+              <p>Search by Name Or Number</p>
+            </br>
 
-                <input class="detail-input" type="text" ng-model="myFilter"></p>
+                <input class="detail-input" type="text" ng-model="myFilter"></input>
                 </div>
               </div>
               <!-- <p>Number
@@ -30,9 +31,9 @@
 
 
                 <div class="displayPokemons" ng-repeat="pokemon in testPokemon | filter: myFilter">
-                  <ul>
+                  <ul style="padding-top: 15px;">
 
-                     <li><h3>{{pokemon.name}}</h3></li>
+                     <li style="list-style: none;"><h3>{{pokemon.name}}</h3></li>
 
                         <img ng-src="{{pokemon.image}}" alt="pokemon.image" height="200px" width="200px"></img>
 

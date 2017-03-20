@@ -40,6 +40,6 @@ angular.module('myApp', ['ui.router'])
 
 
                $urlRouterProvider
-                   .otherwise('/');
+                   .otherwise('/details');
 
             })

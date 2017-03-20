@@ -1,11 +1,13 @@
 
-<div>
-<ul>
 
-   <li><h3>{{pokemon.name}}</h3></li>
+<div>
+<ul style="margin: 0 auto; display: table; margin-top: 100px;">
+
+   <li style="list-style: none;"><h3>{{pokemon.name}}</h3></li>
 
       <img ng-src="{{pokemon.image}}" alt="pokemon.image" height="200px" width="200px"></img>
 
    <li>Index: "#{{pokemon.id}}"</li>
 </ul>
+<a ui-sref="details" style="padding-left: 15px">back to Pokedex</a>
 </div>

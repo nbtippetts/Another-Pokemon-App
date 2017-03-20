@@ -7,7 +7,6 @@ html, body {
 .detail-container {
   height: 100%;
   width: 100%;
-  margin-top: 100px;
 }
 
 .detail-title {
@@ -17,21 +16,17 @@ html, body {
 
 .detail-title p {
   font-size: 60px;
-  display: flex;
 }
 
 .detail-title img {
   height: 100px;
   width: 100px;
   display: flex;
-  margin-top: 70px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .find-pokemon {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 200px;
   background-color: #383030;
 }
 
@@ -41,13 +36,13 @@ html, body {
   font-size: 27px;
   font-family: sans-serif;
   width: 25%;
-  height: 90px;
   padding-left: 1%;
 }
 
-p input.detail-input {
-  width: 90%;
+input.detail-input {
   height: 35px;
+  display: flex;
+  align-self: center;
   border: 3px solid black;
 }
 
@@ -84,9 +79,6 @@ button#detail-btn-reset {
   display: flex;
   height: 50px;
   width: 100px;
-  position: absolute;
-  top: 345px;
-  right: 20px;
 }
 
 button#detail-btn-reset:hover {
