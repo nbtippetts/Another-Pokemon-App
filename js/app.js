@@ -11,24 +11,24 @@ angular.module('myApp', ['ui.router'])
 
                .state('home', {
                  url: '/',
-                 templateUrl: '../view/homeTempl.html',
+                 templateUrl: './view/homeTempl.html',
                  controller: 'homeCtrl',
                  controllerAs: 'vm'
                })
                .state('signUp', {
                  url: '/signUp',
-                 templateUrl: '../view/signUpTempl.html',
+                 templateUrl: './view/signUpTempl.html',
                  controller: 'signUpCtrl',
                  controllerAs: 'vm'
                })
                .state('details', {
                  url: '/details',
-                 templateUrl: '../view/detailsTempl.html',
+                 templateUrl: './view/detailsTempl.html',
                  controller: 'detailsCtrl'
                })
                .state('pokemonDetails', {
                  url: '/pokemonDetails/:id',
-                 templateUrl: '../view/pokemonDetails.html',
+                 templateUrl: './view/pokemonDetails.html',
                  controller: 'pokemonDetailsCtrl',
 
                  onEnter: function(){
@@ -40,6 +40,6 @@ angular.module('myApp', ['ui.router'])
 
 
                $urlRouterProvider
-                   .otherwise('/details');
+                   .otherwise('/');
 
             })
